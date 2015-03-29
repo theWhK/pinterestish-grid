@@ -8,6 +8,7 @@ $.fn.PinterestishGrid = function() {
 	var margem_wrapper = (wrapper.width() - (num_max_caixas * caixas.outerWidth(true))) / 2;
 	var margem_caixas = ((wrapper.width() / num_max_caixas) - caixas.width()) / 2;
 
+	/* Posicionamento das caixas */
 	caixas.each(function(index, el) {
 		if (index >= num_max_caixas) {
 			var divisor = Math.floor(index / num_max_caixas);
@@ -24,10 +25,12 @@ $.fn.PinterestishGrid = function() {
 
 		$(this).css({
 			left: pos_left,
-			top: pos_top
+			top: pos_top,
+			position: 'absolute',
+			float: 'none'
 		});
 	});
 
 	/* Estilização pós-reflow */
-	wrapper.addClass('flow-active');
+	wrapper.css('position', 'relative');;
 }
